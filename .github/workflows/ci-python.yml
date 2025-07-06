@@ -25,12 +25,13 @@ jobs:
 
     - name: Run tests
       run: |
+        export PYTHONPATH=${{ github.workspace }}
         pytest tests/ -v
 
     - name: Coverage Report
       run: |
-        export PYTHONPATH=.
-        pytest --cov=mi_app --cov-report=term --cov-report=html
+        export PYTHONPATH=${{ github.workspace }}
+        pytest --cov=app --cov-report=term --cov-report=html
 
     - name: Save coverage artifact
       uses: actions/upload-artifact@v4
