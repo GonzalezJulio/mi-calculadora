@@ -29,9 +29,13 @@ def dividir(a, b):
         return jsonify({"error": "División por cero"}), 400
     return jsonify({"resultado": a / b})
 
+@app.route("/health")
+def health():
+    return jsonify({"status": "ok"})
+
 # funciones de utilidad
 def potencia(base, exponente): return base ** exponente
 def es_par(n): return n % 2 == 0
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=True)
