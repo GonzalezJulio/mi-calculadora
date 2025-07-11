@@ -13,8 +13,6 @@ jobs:
       - name: 📥 Clonar el código del repo
         uses: actions/checkout@v4
       
-      - name: Cambiar al directorio del proyecto
-        run: cd mi-calculadora
       
       - name: Instalar dependencias
         run: |
