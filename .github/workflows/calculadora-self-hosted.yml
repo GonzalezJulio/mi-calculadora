@@ -14,13 +14,16 @@ jobs:
         uses: actions/checkout@v4
 
       
-      - name: 🛠️ Configurar entorno virtual e instalar dependencias
+      - name: Instalar dependencias
         run: |
-            python3 -m venv venv
-            source venv/bin/activate
-            pip install --upgrade pip
-            pip install -r requirements.txt
-      
-      - name: Ejecutar tests con pytest
-        run: pytest tests/
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+  
+      - name: Ejecutar tests
+        run: |
+          source venv/bin/activate
+          pytest tests/
+  
       
