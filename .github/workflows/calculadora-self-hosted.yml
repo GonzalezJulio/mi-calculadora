@@ -24,6 +24,7 @@ jobs:
       - name: Ejecutar tests
         run: |
           source venv/bin/activate
+          export PYTHONPATH=.
           pytest tests/
 
   
