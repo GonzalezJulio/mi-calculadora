@@ -1,0 +1,26 @@
+name: Test en Self-hosted
+
+on:
+  push:
+    branches: [dia18]   
+  workflow_dispatch:    
+
+jobs:
+  test-en-runner-local:
+    runs-on: [self-hosted]  
+
+    steps:
+      - name: 📥 Clonar el código del repo
+        uses: actions/checkout@v4
+
+      
+      - name: 🛠️ Configurar entorno virtual e instalar dependencias
+        run: |
+            python3 -m venv venv
+            source venv/bin/activate
+            pip install --upgrade pip
+            pip install -r requirements.txt
+      
+      - name: Ejecutar tests con pytest
+        run: pytest tests/
+      
