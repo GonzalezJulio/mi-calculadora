@@ -26,7 +26,6 @@ jobs:
       - name: Ejecutar tests
         run: |
           source venv/bin/activate
-          cd mi-calculadora
           pytest tests/
 
   
